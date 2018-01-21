@@ -20,18 +20,20 @@ module Bot
               if !redis.get(event.id).nil?
 
                 stored_message = JSON.parse(redis.get(event.id))
+                unless stored_message['bot']
 
-                if stored_message['message'] == ''
-                  stored_message['message'] = 'This message was an image and nothing else'
-                end
+                  if stored_message['message'] == ''
+                    stored_message['message'] = 'This message was an image and nothing else'
+                  end
 
-                mod_log.send_embed do |embed|
-                  embed.title = 'Message Deleted'
-                  embed.description = "A message was deleted in <##{event.channel.id}>"
-                  embed.color = '#AB0000'
-                  embed.timestamp = Time.now
-                  embed.author = Discordrb::Webhooks::EmbedAuthor.new(name: "#{stored_message['user']}##{stored_message['tag']}", icon_url: (stored_message['avatar']).to_s)
-                  embed.add_field(name: 'Deleted Message', value: (stored_message['message']).to_s)
+                  mod_log.send_embed do |embed|
+                    embed.title = 'Message Deleted'
+                    embed.description = "A message was deleted in <##{event.channel.id}>"
+                    embed.color = '#AB0000'
+                    embed.timestamp = Time.now
+                    embed.author = Discordrb::Webhooks::EmbedAuthor.new(name: "#{stored_message['user']}##{stored_message['tag']}", icon_url: (stored_message['avatar']).to_s)
+                    embed.add_field(name: 'Deleted Message', value: (stored_message['message']).to_s)
+                  end
                 end
               else
                 mod_log.send_embed do |embed|

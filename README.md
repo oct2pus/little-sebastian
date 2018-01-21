@@ -1,23 +1,26 @@
-# Jadebot
-Jadebot is a chatbot for Discord I created partially out of the desire to make a discordbot and learn ruby, she is intended to be a flanderized version of Jade Harley from Homestuck.
+# Lil Sebastian
+Lil Seb is a mod-log/moderation bot for discord split from [Jadebot](https://github.com/oct2pus/Jadebot) because I wanted to focus on her fun aspects and very few servers besides my own use these features.
 
-# Features
-- Fully-featured moderation logging
-- fun commands like >cowsay (make a cow say things!) or >mspa (pulls up a random image from mspabooru based on search results)
-- Really loves you back!
-- Is adorable
+### Goals
+- Improve >clear
+- Improve Role Monitoring
+- \>massban and \>masskick
 
-# Goals
-- Improve Administration tools
-- Improve leveling and related commands
-- Help Command listing all available commands
-- Continue being adorable
-
-# Contribute
-Perform `bundle install` or manually install each gem using `gem install` that are found within the gem folder. if you would like to how correct "the RP" of jadebot, please either make a pull request with your suggestions altered in with an explaination in the pull request or leave a bug report with your suggestions.
-
-# Discuss
+### Discuss
 please join us at <https://discord.gg/D3vJQQF>!
 
-# Notice
-Jadebot currently has greeter and leveling features managed by "Use Voice Activity", disable Use Voice Activity to disable leveling and the greeter.
+### Running it yourself
+
+First enter the bin directory and then rename config.rb.example to config.rb, put in your Discord bot token and id in the corresonding variables. After that return to the root folder and perform `bundle install` or manually install each gem using `gem install` that are listed in the gemfile. Ensure you have a redis database currently running. To install Redis perform
+`
+sudo apt install redis-server
+`
+and then run
+`
+sudo systemctl start redis-server
+`
+you can then finally run
+`
+ruby run.rb
+`
+from within the root folder.

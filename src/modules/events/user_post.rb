@@ -10,7 +10,7 @@ module Bot
       message do |event|
         redis = Redis.new
         if Bot::JADE.profile.on(event.server).permission?(:manage_server) && Bot::JADE.profile.on(event.server).permission?(:manage_channels)
-          message_hash = { user: event.message.user.username, tag: event.message.user.tag, message: event.message.content, avatar: event.message.user.avatar_url }
+          message_hash = { user: event.message.user.username, tag: event.message.user.tag, message: event.message.content, avatar: event.message.user.avatar_url, bot: event.user.bot_account? }
           redis.set event.message.id, message_hash.to_json
           redis.expire(event.message.id, 180_000) # in seconds, equal to a
           # little more than 41 hours
