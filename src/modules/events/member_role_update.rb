@@ -1,6 +1,3 @@
-require 'json'
-require 'redis'
-
 module Bot
   module Events
     # event stores a users roles when they change

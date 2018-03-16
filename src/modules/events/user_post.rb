@@ -1,6 +1,3 @@
-require 'json'
-require 'redis'
-
 module Bot
   module Events
     # event logs every message and deletes them 5 hours later

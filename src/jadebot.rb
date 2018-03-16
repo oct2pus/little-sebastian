@@ -1,13 +1,9 @@
-require 'discordrb'
-require 'configatron'
-
-require_relative 'bin/config'
 
 # This is the heart of Jadebot, initalizes all other modules
 module Bot
   Dir['src/modules/*.rb'].each { |mod| load mod }
 
-  JADE = Discordrb::Commands::CommandBot.new token: configatron.token, client_id: configatron.id, prefix: '>'
+  JADE = Discordrb::Commands::CommandBot.new token: configatron.token, client_id: configatron.id, prefix: '|'
   #
   # The below documentation and code chunk is from stolen from 'gemstone' which is a reference bot that inspires jadebot's structure
   #
@@ -28,8 +24,7 @@ module Bot
     end
   end
 
-  load_modules(:Responses, 'responses') # these modules are silly messages jade responds with when a certain word or emoji is posted
-  load_modules(:Commands, 'commands') # these modules are her ">" commands
+  load_modules(:Commands, 'commands') # these modules are his "|" commands
   load_modules(:Events, 'events') # these modules are largely used for mod logging
   JADE.run
 end

@@ -1,2 +1,6 @@
-# enter "ruby run.rb" to run jadebot
+require 'discordrb'
+require 'configatron'
+require 'redis'
+require 'json'
+require_relative 'src/bin/config'
 require_relative 'src/jadebot'

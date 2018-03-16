@@ -1,5 +1,3 @@
-require 'redis'
-
 module Bot
   module Commands
     # command mass deletes message on a discord channel

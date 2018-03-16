@@ -1,5 +1,3 @@
-require 'redis'
-
 module Bot
   module Events
     # event logs a server member changing their name and displays it in the mod

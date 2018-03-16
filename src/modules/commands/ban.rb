@@ -1,5 +1,3 @@
-require 'redis'
-
 module Bot
   module Commands
     # command kicks a user from the server, requires user to have "kick members" permission
